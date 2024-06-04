@@ -37,3 +37,14 @@ if(juliahousePriceCost<=juliahousePriceShouldBe)
 else{
     console.log("Julia is paying too much for the house!");
 }
+
+
+
+const randomNumber1 = Math.floor(Math.random() * 10);
+const randomNumber2 = Math.floor(Math.random() * 10);
+
+const firstWords=["fabulous","splendid","mysterious","magical","blur","bluffing","sweet","scary","jumping","sleeping"]
+const secondWords=["spaceship","robot","yoga","elephant","box","burger","vegie","giraffe","mammi","tomato"]
+let startupName =firstWords[randomNumber1]+" "+secondWords[randomNumber2]
+let startupNameLength= startupName.length
+console.log(`The startup: "${startupName}" contains ${startupNameLength} characters.`);
