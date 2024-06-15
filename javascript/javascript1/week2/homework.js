@@ -34,3 +34,18 @@ const weekdays=[
 let eventdaysleft=10;
 let eventday = (todayIndexWeekday+ eventdaysleft) % 7
 console.log(weekdays[eventday]);
+
+
+
+//Weather wear
+
+function chooseClothesToWear(temperature){
+    if(temperature>0 && temperature<13){
+        console.log(`What about some jackets and a hat`);
+    }else if (temperature>13 && temperature< 20){
+        console.log(`Wear hoodie and sweatpants`);
+    }else{
+console.log(`wear shorts`);
+    }
+}
+chooseClothesToWear(16);
