@@ -89,3 +89,38 @@ function getNumberOfStudents() {
 return class07Students.length;
 }
 console.log(`the number of students in class is ${getNumberOfStudents()}`);
+
+
+
+
+//addCandy function
+
+const candyPrices = {
+    sweet: 0.5,
+    Chocolate: 0.7,
+    Toffee: 1.1,
+    Chewing_gum: 0.03
+}
+    function addCandy(candyType,weight){
+        
+    const pricePerGram=candyPrices[candyType]
+    let boughtCandyPrice = pricePerGram *weight;
+    return boughtCandyPrice;
+    }
+ 
+ let boughtCandyPrice = addCandy('sweet',5)
+ 
+console.log(boughtCandyPrice);
+ 
+
+
+const amountToSpend=Math.random() * 100;
+let boughtCandy=[];
+function canBuyMoreCandy()
+{
+    if (boughtCandyPrice>amountToSpend){
+        console.log(`Enough candy for you!`);}
+    else {console.log(`You can buy more, so please do!`)}
+}
+
+canBuyMoreCandy();
