@@ -49,3 +49,43 @@ console.log(`wear shorts`);
     }
 }
 chooseClothesToWear(16);
+
+
+
+
+// addStudentToClass function
+
+const class07Students = [];
+function addStudentToClass(studentName)
+ {
+    if(studentName === ''){
+console.log(`you can not add this empty name`);
+    }
+ else if(class07Students.includes(studentName)){
+    console.log(`Student${studentName}is already in the class`);
+}
+else if(class07Students.length >6 && studentName !== 'Queen' ){
+    console.log(`Cannot add more students to class 07"`);
+}
+
+else{
+    class07Students.push(studentName);
+}
+}
+addStudentToClass('Amalie');
+addStudentToClass('Cecilie');
+addStudentToClass('Josephine');
+addStudentToClass('Queen')
+addStudentToClass('Amalie')
+addStudentToClass('Joakim')
+addStudentToClass('Matilde')
+addStudentToClass('Luna')
+addStudentToClass('Sebastian')
+addStudentToClass('Frederik')
+
+
+
+function getNumberOfStudents() {
+return class07Students.length;
+}
+console.log(`the number of students in class is ${getNumberOfStudents()}`);
