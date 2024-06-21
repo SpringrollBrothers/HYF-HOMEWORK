@@ -113,3 +113,58 @@ for (let i = 0; i < seriesDurations.length; i++) {
   inTotal += percentage;
 }
 console.log(`In total thats ${inTotal.toFixed(3)}% of my life`);
+
+//Note taking app, add notes
+
+let notes = [];
+function saveNote(content, id) {
+  notes.push({ thingsToDo: content, number: id });
+}
+
+saveNote("Pick up groceries", 1);
+saveNote("Do laundry", 2);
+saveNote("Vacuum the room", 3);
+saveNote("Take a shower", 4);
+
+//Note taking app, get notes
+function getNote(id) {
+  if (id === undefined || typeof id !== "number") {
+    console.log("please...do better");
+    return;
+  }
+  for (let i = 0; i < notes.length; i++) {
+    if (id === notes[i].number) {
+      return notes[i];
+    }
+  }
+}
+
+const firstNote = getNote(1);
+const secondNote = getNote(4);
+
+console.log(firstNote);
+console.log(secondNote);
+
+//Note taking app, logout
+
+function logOutNotesFormatted() {
+  for (let i = 0; i < notes.length; i++) {
+    const note = notes[i];
+    console.log(
+      `The note with id: ${note.number}, has the following note text: ${note.thingsToDo}`
+    );
+  }
+}
+logOutNotesFormatted();
+
+// new feature of deleting the completed tasks
+
+function deleteNotes(deleteContent) {
+  for (let i = 0; i < notes.length; i++) {
+    if (notes[i].thingsToDo === deleteContent) {
+      notes.splice(i, 1);
+    }
+  }
+}
+deleteNotes("Pick up groceries");
+console.log(notes);
