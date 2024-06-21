@@ -36,3 +36,80 @@ const travelInformation = {
 };
 
 getHours(travelInformation.speed, travelInformation.destinationDistance);
+
+//series duration of my life
+
+const seriesDurations = [
+  {
+    title: "The Wire",
+    days: 2,
+    hours: 12,
+    minutes: 0,
+  },
+  {
+    title: "Sopranos",
+    days: 3,
+    hours: 1,
+    minutes: 6,
+  },
+  {
+    title: "Six Feet Under",
+    days: 2,
+    hours: 9,
+    minutes: 44,
+  },
+  {
+    title: "Mad Men",
+    days: 3,
+    hours: 0,
+    minutes: 4,
+  },
+  {
+    title: "Breaking Bad",
+    days: 2,
+    hours: 3,
+    minutes: 40,
+  },
+  {
+    title: "Better Call Saul",
+    days: 2,
+    hours: 1,
+    minutes: 21,
+  },
+  {
+    title: "Chernobyl",
+    days: 0,
+    hours: 5,
+    minutes: 30,
+  },
+  {
+    title: "Lost",
+    days: 3,
+    hours: 16,
+    minutes: 30,
+  },
+];
+
+function getTimePercentage(title, days, hours, minutes) {
+  const minutesOf80Years = 80 * 365 * 24 * 60;
+  const eachSeriesMinutes = days * 24 * 60 + hours * 60 + minutes;
+  const timePercentage = (eachSeriesMinutes / minutesOf80Years) * 100;
+
+  console.log(
+    `<${title}> took ${timePercentage.toFixed(3)}% of my life!!!!!!!`
+  );
+
+  return timePercentage;
+}
+let inTotal = 0;
+for (let i = 0; i < seriesDurations.length; i++) {
+  //let series = seriesDurations[i];
+  const percentage = getTimePercentage(
+    seriesDurations[i].title,
+    seriesDurations[i].days,
+    seriesDurations[i].hours,
+    seriesDurations[i].minutes
+  );
+  inTotal += percentage;
+}
+console.log(`In total thats ${inTotal.toFixed(3)}% of my life`);
