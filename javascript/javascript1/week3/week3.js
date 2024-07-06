@@ -11,23 +11,18 @@ let names = [
 ];
 const nameToRemove = "Ahmad";
 
-for (i = 0; i < names.length; i++) {
-  if (names[i] === nameToRemove) {
-    names.splice(i, 1);
-  }
-}
+names.splice(names.indexOf(nameToRemove), 1);
 console.log(names);
 
 //When will we be there
 
 function getHours(speed, destinationDistance) {
-  const hours = destinationDistance / speed;
-  function formatTime(hours) {
-    const wholeHours = Math.floor(hours);
-    const minutes = Math.round((hours - wholeHours) * 60);
-    console.log(wholeHours + " hours and " + minutes + " minutes");
-  }
-  formatTime(hours);
+  return destinationDistance / speed;
+}
+function formatTime(hours) {
+  const wholeHours = Math.floor(hours);
+  const minutes = Math.round((hours - wholeHours) * 60);
+  console.log(wholeHours + " hours and " + minutes + " minutes");
 }
 
 const travelInformation = {
@@ -35,7 +30,12 @@ const travelInformation = {
   destinationDistance: 974,
 };
 
-getHours(travelInformation.speed, travelInformation.destinationDistance);
+const hours = getHours(
+  travelInformation.speed,
+  travelInformation.destinationDistance
+);
+
+formatTime(hours);
 
 //series duration of my life
 
@@ -65,7 +65,7 @@ const seriesDurations = [
     minutes: 4,
   },
   {
-    title: "Breaking Bad",
+    title: "Breaking bad",
     days: 2,
     hours: 3,
     minutes: 40,
@@ -139,11 +139,8 @@ function getNote(id) {
   }
 }
 
-const firstNote = getNote(1);
-const secondNote = getNote(4);
-
-console.log(firstNote);
-console.log(secondNote);
+console.log(getNote(1));
+console.log(getNote(4));
 
 //Note taking app, logout
 
