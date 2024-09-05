@@ -32,3 +32,33 @@ CREATE TABLE STUDENT(
     CLASS_ID INT,
     Foreign Key (CLASS_ID) REFERENCES class(id)
 );
+
+--part3 
+
+-- 1.Get all the tasks assigned to users whose email ends in @spotify.com
+select task.title, user.name from task join user on user.email like '%@spotify.com';
+--2.Get all the tasks for 'Donald Duck' with status 'Not started'
+select 
+task.title,
+user.name,
+task.status_id 
+from task 
+JOIN 
+user on task.user_id = user.id
+join 
+status on task.status_id = status.id
+where 
+user.name = 'Donald Duck' AND
+status.name = 'Not Started';
+--3.Get all the tasks for 'Maryrose Meadows' that were created in september (hint: month(created)=month_number)
+SELECT 
+task.title,
+user.name,
+task.created
+from task 
+join user on user.name='Maryrose Meadows'
+where  month(task.created)=9;
+--4.Find how many tasks where created in each month, e.g. how many tasks were created in october, how many tasks were created in november, etc. (hint: use group by)*/
+select month(task.created),count(*)
+from task
+GROUP BY month(task.created);
