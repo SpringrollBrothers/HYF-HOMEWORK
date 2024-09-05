@@ -13,3 +13,22 @@ ROLLBACK;
 --(i made a mistake, changed all the status_id, and i dont know how to reverse to previous status)
 --6. Delete a task
 DELETE from task where title = '洗澡';
+
+
+--PART2 
+create DATABASE School;
+use School;
+creatE table class(
+    id int PRIMARY KEY,
+    name VARCHAR(255),
+    beginsdate DATE,
+    endsdate DATE
+);
+CREATE TABLE STUDENT(
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    NAME VARCHAR(255),
+    EMAIL VARCHAR(255),
+    PHONE BIGINT,
+    CLASS_ID INT,
+    Foreign Key (CLASS_ID) REFERENCES class(id)
+);
