@@ -18,20 +18,21 @@ DELETE from task where title = '洗澡';
 --PART2 
 create DATABASE School;
 use School;
-creatE table class(
-    id int PRIMARY KEY,
-    name VARCHAR(255),
-    beginsdate DATE,
-    endsdate DATE
+create table class(
+    id int AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(10)not null UNIQUE,
+begins DATE,
+ends date
 );
-CREATE TABLE STUDENT(
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    NAME VARCHAR(255),
-    EMAIL VARCHAR(255),
-    PHONE BIGINT,
-    CLASS_ID INT,
-    Foreign Key (CLASS_ID) REFERENCES class(id)
+
+create table student(
+id int PRIMARY key AUTO_INCREMENT,
+name VARCHAR(10) not null UNIQUE,
+email VARCHAR(20),
+phone BIGINT,
+class_id INT
 );
+alter table student add constraint fk_student_class_id FOREIGN key (class_id)REFERENCES class(id);
 
 --part3 
 
