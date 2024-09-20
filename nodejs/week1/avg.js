@@ -14,6 +14,6 @@ if (args.length === 0) {
     }
 
     let average = sum / numbers.length;
-    console.log(average);
+    console.log(`The average is: ${average}`);
   }
 }
