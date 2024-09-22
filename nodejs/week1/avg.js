@@ -8,10 +8,9 @@ if (args.length === 0) {
   if (numbers.some(isNaN)) {
     console.log("Please provide only valid numbers.");
   } else {
-    let sum = 0;
-    for (let i = 0; i < numbers.length; i++) {
-      sum += numbers[i];
-    }
+    const sum = numbers.reduce((acc, cur) => {
+      return cur + acc;
+    }, 0);
 
     let average = sum / numbers.length;
     console.log(`The average is: ${average}`);
