@@ -61,7 +61,55 @@ app.get("/documents/:id", (req, res) => {
       return res.status(404).send("Document not found.");
     }
 
-    // Return the document
     res.json(document);
+  });
+});
+
+app.post("/search", (req, res) => {
+  const query = req.query.q;
+  const fields = req.body.fields;
+
+  // Check if both query and fields are provided
+  if (query && fields) {
+    return res
+      .status(400)
+      .send(
+        "You can't provide both 'q' (query) and 'fields' at the same time."
+      );
+  }
+
+  // Read the documents.json file
+  fs.readFile("documents.json", "utf-8", (err, data) => {
+    if (err) {
+      return res.status(500).send("Error reading documents file.");
+    }
+
+    // Parse the data to JSON
+    const documents = JSON.parse(data);
+
+    // Handle query-based search (same as GET /search)
+    if (query) {
+      const filteredDocuments = documents.filter((doc) =>
+        Object.values(doc).some(
+          (value) =>
+            typeof value === "string" &&
+            value.toLowerCase().includes(query.toLowerCase())
+        )
+      );
+      return res.json(filteredDocuments);
+    }
+
+    // Handle field-based search
+    if (fields) {
+      const filteredDocuments = documents.filter((doc) =>
+        Object.keys(fields).every(
+          (field) => doc[field] && doc[field] === fields[field]
+        )
+      );
+      return res.json(filteredDocuments);
+    }
+
+    // If neither query nor fields are provided, return all documents
+    res.json(documents);
   });
 });
