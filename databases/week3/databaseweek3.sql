@@ -39,6 +39,33 @@ alter table review
 MODIFY column title VARCHAR(50);
 insert into meal 
 (title, description, location, `when`, max_reservations, price, created_date)
+ALTER TABLE meal ADD COLUMN image_url VARCHAR(255);
+UPDATE meal SET image_url = 'https://example.com/image.jpg' WHERE id = 1;
+-- Insert new meals with image URLs
+INSERT INTO meal 
+(title, description, location, `when`, max_reservations, price, created_date, image_url)
+VALUES
+(
+    'Pizza Party',
+    'An evening filled with cheesy, hot, and delicious pizzas, baked to perfection with your choice of toppings.',
+    'Pizza Palace, Central Square',
+    '2024-10-01 19:00',
+    30,
+    20.00,
+    '2024-09-20',
+    'https://example.com/pizza.jpg'
+),
+(
+    'Vegan Feast',
+    'A vibrant and wholesome vegan meal with fresh salads, hearty mains, and delicious plant-based desserts.',
+    'Green Table, Eco Park',
+    '2024-10-05 18:00',
+    25,
+    18.50,
+    '2024-09-22',
+    'https://example.com/vegan.jpg'
+);
+
 VALUES
 (
 'Pasta',
