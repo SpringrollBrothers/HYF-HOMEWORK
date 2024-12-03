@@ -44,6 +44,10 @@ UPDATE meal SET image_url = 'https://example.com/image.jpg' WHERE id = 1;
 -- Insert new meals with image URLs
 INSERT INTO meal 
 (title, description, location, `when`, max_reservations, price, created_date, image_url)
+SHOW CREATE TABLE meal;
+UPDATE meal 
+SET image_url = 'https://iamhomesteader.com/wp-content/uploads/2022/04/birria-taco-2.jpg' 
+WHERE id = 4;
 VALUES
 (
     'Pizza Party',
